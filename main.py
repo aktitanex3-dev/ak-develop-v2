@@ -46,7 +46,7 @@ SMM_QUESTIONS = [
 
     "4️⃣ **ይህ የማኔጅመንት አገልግሎት ለምን ያህል ጊዜ እንዲቀጥል ይፈልጋሉ?**\n\n"
     "■ ከእርስዎ ጋር የምናደርገውን የውል ስምምነት ጊዜ ለመወሰን ይረዳናል።\n"
-    "■ ለ1 ወር የሙከራ ጊዜ፣ ለ3 ወራት ወይም ለረጅም ጊዜ ሊሆን ይችላል。\n"
+    "■ ለ1 ወር የሙከራ ጊዜ၊ ለ3 ወራት ወይም ለረጅም ጊዜ ሊሆን ይችላል。\n"
     "■ በጊዜው ርዝማኔ ልክ ልዩ ልዩ የዋጋ ቅናሾችን የምናዘጋጅበት ይሆናል።\n"
     "■ አገልግሎቱን ለምን ያህል ጊዜ መውሰድ እንዳሰቡ እባክዎ ይግለጹልን፦",
 
@@ -62,7 +62,71 @@ SMM_QUESTIONS = [
     "■ እባክዎ በትክክል የሚሰሩበትን ዩዘርኔም (ለምሳሌ @username) ያስገቡልን፦"
 ]
 
-# 🌐🤖📱📣 የሌሎቹ ምድቦች 5 ጥያቄዎች (እያንዳንዳቸው ከ6-7 መስመር ዝርዝር ማብራሪያ አላቸው)
+# 📣 የፕሮሞሽን (Promotion) 5 ዋና ጥያቄዎች (በእያንዳንዱ 6-7 መስመር)
+PROMO_QUESTIONS = [
+    "1️⃣ **ማስተዋወቅ (Promote) የሚፈልጉት ነገር ምንድን ነው? (ቻናል፣ ቦት፣ ዌብሳይት ወይስ ምርት?)**\n\n"
+    "■ ይህ ጥያቄ የትኛውን ዲጂታል ንብረት ወይም ምርት እንደምናስተዋውቅ ለመለየት ነው።\n"
+    "■ የቻናል ወይም የቦት ሊንክ ከሆነ ይዘቱን አይተን የሚስማማ ማስታወቂያ እንሰራለን።\n"
+    "■ ምርት ወይም አገልግሎት ከሆነ ደግሞ የሽያጭ ኮፒራይቲንግ ፅሁፍ እናዘጋጃለን።\n"
+    "■ እባክዎ ማስተዋወቅ የፈለጉትን ነገር ሙሉ መግለጫ ወይም ሊንክ እዚህ ይፃፉልን፦",
+
+    "2️⃣ **ይህ ማስታወቂያ በዋናነት ለምን ዓይነት ማህበረሰብ እንዲደርስ ይፈልጋሉ? (Target Audience)**\n\n"
+    "■ ማስታወቂያው ውጤታማ እንዲሆን ትክክለኛውን ደንበኛ መምረጥ ወሳኝ ክፍል ነው።\n"
+    "■ ለምሳሌ፦ ተማሪዎች፣ ነጋዴዎች፣ በቴክኖሎጂ ወይም በፋይናንስ ዙሪያ ፍላጎት ያላቸው።\n"
+    "■ የደንበኞችን ዕድሜ፣ ፆታ ወይም የሚገኙበትን ቦታ (አካባቢ) መጥቀስ ይችላሉ።\n"
+    "■ እባክዎ ማስታወቂያዎ እንዲደርሳቸው የሚፈልጓቸውን ሰዎች ዝርዝር በጥልቀት ያብራሩ፦",
+
+    "3️⃣ **ማስታወቂያው ለምን ያህል ጊዜ እንዲቀጥል ወይም በምን ያህል ቻናሎች ላይ እንዲሰራ ይፈልጋሉ?**\n\n"
+    "■ የካምፔይኑን ስፋትና የሚቆይበትን ጊዜ (Duration) ለመወሰን የሚረዳ ጥያቄ ነው።\n"
+    "■ ለአንድ ጊዜ የጅምላ መልዕክት፣ ለ1 ሳምንት ተከታታይ ፖስት ወይስ ለወር የሚቆይ ማስታወቂያ?\n"
+    "■ ይህ መረጃ ሰራተኞቻችን የጊዜ ሰሌዳውን በትክክል እንዲያስተካክሉ ያደርጋቸዋል።\n"
+    "■ አገልግሎቱን መውሰድ የፈለጉበትን የጊዜ ርዝማኔ እባክዎ በዝርዝር ይግለጹልን፦",
+
+    "4️⃣ **ለዚህ የማስታወቂያ ዘመቻ (Promotion Campaign) የመደቡት ግምታዊ በጀት በብር ምን ያህል ነው?**\n\n"
+    "■ ከእርስዎ አቅም ጋር የሚመጥን እና ከፍተኛ ተደራሽነት ያለው አማራጭ ለማቅረብ ነው።\n"
+    "■ በበጀትዎ መሠረት የምንለጥፍባቸውን ትልልቅ ቻናሎች እና ግሩፖች እንመርጣለን።\n"
+    "■ አነስተኛ፣ መካከለኛ ወይም ከፍተኛ የማስታወቂያ ፓኬጆችን ለማዘጋጀት ይጠቅመናል።\n"
+    "■ እባክዎ ለዚህ አገልግሎት ያዘጋጁትን ግምታዊ ወርሃዊ ወይም የካምፔይን በጀት ያስገቡ፦",
+
+    "🎯 **5️⃣ በመጨረሻም፣ የእርስዎን ዋና የቴሌግራም ዩዘርኔም (Username) ያስገቡ፦**\n\n"
+    "■ ማስታወቂያውን ካዘጋጀን በኋላ ዲዛይኑን እና ፅሁፉን ለማሳየት የምናገኝበት መስመር ነው።\n"
+    "■ ስምምነቱን በውስጥ መስመር ጨርሰን ማስታወቂያውን በቀጥታ ወደ ስራ ለማስገባት ይጠቅማል።\n"
+    "■ እባክዎ በአሁኑ ሰዓት በትክክል የሚሰሩበትን ዩዘርኔም (ለምሳሌ @username) ያስገቡልን፦"
+]
+
+# 📦 የሪሴል ማቴሪያል (Material Resell) 5 ዋና ጥያቄዎች (በእያንዳንዱ 6-7 መስመር)
+MATERIAL_QUESTIONS = [
+    "1️⃣ **የሚሸጠው ወይም ድጋሚ ለገበያ የሚቀርበው ዕቃ/ማቴሪያል ምን ዓይነት ዕቃ ነው?**\n\n"
+    "■ ይህ ጥያቄ የምርቱን ምድብ እና ዓይነት (Category) በትክክል ለመለየት ይረዳናል።\n"
+    "■ ለምሳሌ፦ ኤሌክትሮኒክስ (ስልክ/ላፕቶፕ)፣ አልባሳት፣ የቤት እቃዎች ወይም ሌላ ምርት።\n"
+    "■ የዕቃውን ዋና ስም፣ ሞዴል ወይም ብራንድ አብራርተው መፃፍ ይችላሉ።\n"
+    "■ እባክዎ ድጋሚ እንዲሸጥ የፈለጉትን ዕቃ አጠቃላይ መግለጫ እዚህ ይፃፉልን፦",
+
+    "2️⃣ **የዕቃው ወቅታዊ ሁኔታ (Condition) እና የሚሸጥበት ትክክለኛ ዋጋ በብር ምን ያህል ነው?**\n\n"
+    "■ የዕቃውን ጥራት እና ለገዢዎች የሚቀርብበትን የዋጋ ተመን የምናውቅበት ክፍል ነው።\n"
+    "■ አዲስ (Brand New) መሆኑን ወይም የተጠቀሙበት (Used) መሆኑን በግልጽ ይግለጹ።\n"
+    "■ እቃው ላይ ያሉትን መለዋወጫዎች እና የመጨረሻ መሸጫ ዋጋውን መጥቀስ ያስፈልጋል።\n"
+    "■ እባክዎ ስለ እቃው ሁኔታ እና ስለ ዋጋው ዝርዝር መረጃ እዚህ ያስገቡልን፦",
+
+    "3️⃣ **በአሁኑ ሰዓት ለማቅረብ ያሰቡት የዚህ ማቴሪያል/ዕቃ ብዛት (Quantity) በግምት ምን ያህል ነው?**\n\n"
+    "■ ይህ መረጃ በጅምላ (Bulk) ወይስ በችርቻሮ (Single Item) እንደምናስተዋውቅ ይወስናል።\n"
+    "■ አንድ ፍሬ ብቻ የሚሸጥ ከሆነ ወይም በክምችት (Stock) ደረጃ ብዙ ካለዎት ይግለጹልን።\n"
+    "■ ይህ የሽያጭ ስልቱን እና የትዕዛዝ መቀበያ መንገዱን ለመቀልየስ በጣም ጠቃሚ ነው።\n"
+    "■ እባክዎ በእጅዎ ላይ የሚገኘውን ትክክለኛ የዕቃ ብዛት በዝርዝር ይፃፉልን፦",
+
+    "4️⃣ **ከእኛ ጋር ለሚኖረው የሽያጭ አጋርነት ምን ዓይነት የትርፍ ወይም የኮሚሽን ስምምነት አቅደዋል?**\n\n"
+    "■ ይህ ጥያቄ በሪሴሊንግ (Reselling) ስራ ላይ የእኛን ድርሻ ለመወሰን የሚረዳ ክፍል ነው።\n"
+    "■ በቋሚ ክፍያ (Fixed Rate) ወይስ በእያንዳንዱ ዕቃ ሽያጭ ላይ የኮሚሽን ፐርሰንት (Percentage)?\n"
+    "■ ሁለቱንም ወገን አትራፊ የሚያደርግ ምርጥ የሽያጭ ስምምነት ለመንደፍ ይጠቅመናል።\n"
+    "■ እባክዎ ያሰቡትን የኮሚሽን ወይም የትርፍ ክፍያ ሁኔታ በጥልቀት ያብራሩልን፦",
+
+    "🎯 **5️⃣ በመጨረሻም፣ የእርስዎን ዋና የቴሌግራም ዩዘርኔም (Username) ያስገቡ፦**\n\n"
+    "■ ዕቃውን የሚረከቡ ባለሙያዎቻችን በቀጥታ እርስዎን የሚያገኙበት ዋና መስመር ነው።\n"
+    "■ በውስጥ መስመር የዕቃውን ምስሎች (Photos) እና የሽያጭ ውሎችን ለመጨረስ ይጠቅማል።\n"
+    "■ እባክዎ በትክክል የሚሰሩበትን ዩዘርኔም (ለምሳሌ @username) ያስገቡልን፦"
+]
+
+# 🌐🤖📱 የሌሎቹ ምድቦች 5 ጥያቄዎች (እያንዳንዳቸው ከ6-7 መስመር ዝርዝር ማብራሪያ አላቸው)
 QUESTIONS = {
     "am": [
         "1️⃣ **ለመሆኑ ይህ ሲስተም/አገልግሎት እንዴት እንዲሰራሎት ይፈልጋሉ?**\n\n"
@@ -95,7 +159,7 @@ QUESTIONS = {
         "■ በበጀትዎ ልክ የሚሰሩ ምርጥ ቴክኖሎጂዎችን እና ፍሬምወርኮችን እንመርጣለን።\n"
         "■ እባክዎ ለዚህ ፕሮጀክት ማውጣት የሚችሉትን ግምታዊ የገንዘብ መጠን ይፃፉ፦",
 
-        "🎯 **በመጨረሻም፣ የእርስዎን የቴሌግራም ዩዘርኔም (ለምሳሌ @username) ያስገቡ፦**\n\n"
+        "🎯 **በመጨረሻም፣ የእርስዎን የቴሌግราม ዩዘርኔም (ለምሳሌ @username) ያስገቡ፦**\n\n"
         "■ ስራውን ሙሉ በሙሉ ተረክበን ዝርዝር የዋጋ ማቅረቢያ (Proposal) የምንልክበት ነው።\n"
         "■ በቴክኒክ ጉዳዮች ላይ በውስጥ መስመር በሰፊው ለመወያየት ይጠቅመናል።\n"
         "■ እባክዎ በአሁኑ ሰዓት በንቃት የሚጠቀሙበትን ትክክለኛ ዩዘርኔም ያስገቡልን፦"
@@ -138,7 +202,7 @@ QUESTIONS = {
     ]
 }
 
-# 📑 የአገልግሎቶቹ እጅግ ሰፋፊ የ6-7 መስመር ማብራሪያዎች (Descriptions)
+# 📑 የሌሎች አገልግሎቶች መግለጫዎች
 DESCRIPTIONS = {
     "web": {
         "0": {
@@ -337,72 +401,6 @@ DESCRIPTIONS = {
                   "■ Grants executives total remote viewing eyes over corporate operations globally.\n\n"
                   "👉 Would you like to launch this corporate ERP application?"
         }
-    },
-    "promo": {
-        "0": {
-            "am": "📣 **የቴሌግራም ቻናል ማስታወቂያ (Telegram Channel Promotion Campaign)**\n\n"
-                  "■ የቴሌግራም ቻናልዎን ወይም ቦትዎን በአጭር ጊዜ ውስጥ በሺዎች ለሚቆጠሩ ሰዎች እናስተዋውቃለን።\n"
-                  "■ ከፍተኛ ተከታይ እና ንቁ ተሳትፎ ባላቸው ትልልቅ የሀገር ውስጥ ቻናሎች ላይ ይለጠፋል።\n"
-                  "■ እውነተኛ እና ንቁ የሆኑ ተከታዮችን (Real Members) ወደ ቻናልዎ ያሳድጋል።\n"
-                  "■ ምርትና አገልግሎትዎን በቀጥታ ለገዢዎች በማድረስ የሽያጭ መጠንዎን ያፋጥነዋል።\n"
-                  "■ ለካምፓኒዎ ምርጥ የማስታወቂያ ዲዛይን እና ፅሁፍ (Copywriting) በነፃ እንሰራለን።\n\n"
-                  "👉 ይህንን የማስተዋወቅ አገልግሎት መውሰድ ይፈልጋሉ?",
-            "en": "📣 **High-Impact Telegram Channel Marketing Campaign**\n\n"
-                  "■ Expose your bot or digital channel to hundreds of thousands of active eyes.\n"
-                  "■ Features placement ads inside massive networks boasting high conversion metrics.\n"
-                  "■ Channels organic real active daily users straight to your brand community.\n"
-                  "■ Acts as an effective catalyst to drive product recognition and store checkouts.\n"
-                  "■ Includes complimentary graphical ad banners and marketing copywriting.\n\n"
-                  "👉 Would you like to scale using this marketing campaign?"
-        },
-        "1": {
-            "am": "✉️ **የጅምላ መልዕክት መላክ (Bulk Messaging Service Across Inbox)**\n\n"
-                  "■ ማስታወቂያዎን በአንድ ጊዜ ለሺዎች ተጠቃሚዎች በቀጥታ ወደ ኢንቦክሳቸው (DM) የሚያደርስ ነው።\n"
-                  "■ ሰዎች ቻናል ውስጥ ከማየት ይልቅ ኢንቦክስ የገባላቸውን መልዕክት የማንበብ ዕድላቸው 90% ነው።\n"
-                  "■ የእርስዎን ኢላማ ያደረገ ተጠቃሚ (Targeted Audience) መርጦ መልዕክቱን ያደርሳል።\n"
-                  "■ አዳዲስ ቅናሾችን፣ ስልጠናዎችን ወይም ምርቶችን በፍጥነት ለማዳረስ እጅግ ውጤታማ ነው።\n"
-                  "■ በአጭር ሰዓት ውስጥ ብዙ የውስጥ መስመር ደንበኞችን ለማፍራት ተመራጭ ዘዴ ነው።\n\n"
-                  "👉 ይህንን የጅምላ መልዕክት አገልግሎት ማዘዝ ይፈልጋሉ?",
-            "en": "✉️ **Direct Bulk Messaging Inbox Service (DM Outreach)**\n\n"
-                  "■ Broadcasts your tailored pitch notes directly into thousands of target inboxes.\n"
-                  "■ Guarantees staggering 90% read rates compared to standard channel feeds.\n"
-                  "■ Extracts precise target audiences relevant to your commercial domain.\n"
-                  "■ Outstanding choice for dispersing discount warnings, event entries, or apps.\n"
-                  "■ Produces instantaneous lead flows directly answering back to your sales agent.\n\n"
-                  "👉 Would you like to dispatch this bulk messaging campaign?"
-        },
-        "2": {
-            "am": "💰 **የዲጂታል አገልግሎቶች መልሶ መሸጥ (Digital Services Reselling Partnership)**\n\n"
-                  "■ የእኛን የቴክኖሎጂ ስራዎች (ድረ-ገጽ፣ አፕ፣ ቦት) በራስዎ ዋጋ በመሸጥ ትርፍ የሚያገኙበት ነው።\n"
-                  "■ ምንም ዓይነት የኮዲንግ ዕውቀት ሳይኖርዎት የሶፍትዌር ካምፓኒ ባለቤት መሆን ይችላሉ።\n"
-                  "■ ደንበኛ ፈልገው ያመጣሉ፣ እኛ እንሰራለን፣ እርስዎ በመካከሉ ትልቅ ኮሚሽን ይወስዳሉ።\n"
-                  "■ ስራዎቹን ለደንበኛዎ ሲያስረክቡ በራስዎ የድርጅት ስም (White-Label) ማቅረብ ይችላሉ።\n"
-                  "■ ያለ ምንም መነሻ ካፒታል የራስዎን የዲጂታል ቢዝነስ ለመጀመር ወርቃማ ዕድል ነው።\n\n"
-                  "👉 የሪሴሊንግ አጋር መሆን ይፈልጋሉ?",
-            "en": "💰 **Digital Software Services Reselling & Whitelabel Partnership**\n\n"
-                  "■ Re-brand our technological build items under your own agency price margins.\n"
-                  "■ Launch an independent modern software firm without holding any coding skills.\n"
-                  "■ Secure the contract, we code the build, and you retain the major markup profit.\n"
-                  "■ All systems delivered to client under your explicit company insignia.\n"
-                  "■ Zero startup capital requirements to initiate high-ticket agency operations.\n\n"
-                  "👉 Would you like to register as a whitelabel reselling partner now?"
-        },
-        "3": {
-            "am": "💎 **የቪአይፒ/ፕሪሚየም ማህበረሰብ ማስተዋወቅ (VIP Community Marketing Strategy)**\n\n"
-                  "■ የሚከፈልባቸው የፎሬክስ፣ የክሪፕቶ ሲግናል፣ ወይም የትምህርት ቻናሎችን የማሳደጊያ ስልት ነው።\n"
-                  "■ በዘርፉ ላይ ከፍተኛ ፍላጎት ያላቸውን እውነተኛ ኢንቨስተሮች መርጦ ይስባል።\n"
-                  "■ የደንበኞችን አመኔታ የሚጨምሩ ውብ የትርፍ ማሳያ ምስሎችን (Results) እንነድፋለን።\n"
-                  "■ ወርሃዊ ክፍያ የሚከፍሉ ታማኝ ደንበኞችን (Subscribers) ቁጥር በእጅጉ ያሳድጋል።\n"
-                  "■ ልዩ በሆኑ ሚስጥራዊ ስልቶች የፕሪሚየም ማህበረሰብዎን ትልቅ ደረጃ ያደርሰዋል።\n\n"
-                  "👉 ይህንን የቪአይፒ ማህበረሰብ ማስተዋወቂያ ማዘዝ ይፈልጋሉ?",
-            "en": "💎 **VIP & Premium Trading/Crypto Community Scaler Blueprint**\n\n"
-                  "■ Specialized growth funnels targeted to scale paid premium education networks.\n"
-                  "■ Targets highly qualified high-intent financial investors directly to your link.\n"
-                  "■ Enhances consumer loyalty by rendering conversion profit testimonials layout graphs.\n"
-                  "■ Maximizes recurring monthly membership signups across your signal pipelines.\n"
-                  "■ Uses advanced conversion frameworks to rapidly grow premium memberships.\n\n"
-                  "👉 Would you like to deploy this VIP marketing funnel?"
-        }
     }
 }
 
@@ -425,7 +423,7 @@ def start(message):
     )
     bot.send_message(chat_id, start_text, parse_mode="Markdown", reply_markup=markup)
 
-# ዋና ሜኑ ጽሑፎች (6-7 መስመር መሆን ስላለበት እዚህ ተለይቶ ተቀመጠ)
+# ዋና ሜኑ ጽሑፎች (6-7 መስመር)
 def get_main_menu_text(lang):
     if lang == "am":
         return (
@@ -449,7 +447,7 @@ def get_main_menu_text(lang):
 def get_main_menu(lang):
     markup = types.InlineKeyboardMarkup(row_width=1)
     texts = {
-        "am": ["🌐 ዌብሳይት መፍጠር (Website Creation)", "🤖 የቴሌግራም ቦት (Bot Creation)", "📱 የሞባይል አፕሊኬሽን (App Creation)", "📈 ሶሻል ሚዲያ (Social Media Management)", "📣 ፕሮሞሽን እና ሪሴል (Promotion & Resell)", "ℹ️ ስለ እኛ (About Us)", "📝 አስተያየት መስጫ (Feedback)"],
+        "am": ["🌐 ዌብሳይት መፍጠር (Website Creation)", "🤖 የቴሌግራም ቦት (Bot Creation)", "📱 የሞባይል አፕሊኬሽን (App Creation)", "📈 ሶሻል ሚዲያ ማኔጅመንት (Social Media)", "📣 ፕሮሞሽን እና ሪሴል (Promotion & Resell)", "ℹ️ ስለ እኛ (About Us)", "📝 አስተያየት መስጫ (Feedback)"],
         "en": ["🌐 Website Creation", "🤖 Bot Creation", "📱 App Creation", "📈 Social Media Management", "📣 Promotion & Resell", "ℹ️ About Us", "📝 Feedback"]
     }
     t = texts[lang]
@@ -464,14 +462,13 @@ def get_main_menu(lang):
     )
     return markup
 
-# ንዑስ ሜኑዎች
+# ንዑስ ሜኑዎች (ዌብሳይት፣ ቦት፣ አፕ)
 def get_sub_menu(category, lang):
     markup = types.InlineKeyboardMarkup(row_width=2)
     names = {
         "web": {"am": ["ኢ-ኮሜርስ", "ኩባንያ", "ፖርትፎሊዮ", "ብሎግ", "✨ ሌላ ዓይነት"], "en": ["E-commerce", "Company", "Portfolio", "Blog", "✨ Other"]},
         "bot": {"am": ["የሱቅ ቦት", "የግሩፕ ጠባቂ", "የቻናል ረዳት", "የኤፒአይ ቦት", "✨ ሌላ ዓይነት"], "en": ["Store Bot", "Group Guard", "Channel Assistant", "API Bot", "✨ Other"]},
-        "app": {"am": ["የሱቅ አፕ", "የዲሊቨሪ አፕ", "የማህበራዊ አፕ", "የድርጅት አፕ", "✨ ሌላ ዓይነት"], "en": ["Store App", "Delivery App", "Social App", "Corporate App", "✨ Other"]},
-        "promo": {"am": ["ቻናል ማስታወቂያ", "የጅምላ መልዕክት", "አገልግሎት መልሶ መሸጥ", "ፕሪሚየም ማስተዋወቅ", "✨ ሌላ ዓይነት"], "en": ["Channel Promo", "Bulk Msg", "Reselling", "Premium Promo", "✨ Other"]}
+        "app": {"am": ["የሱቅ አፕ", "የዲሊቨሪ አፕ", "የማህበራዊ አፕ", "የድርጅት አፕ", "✨ ሌላ ዓይነት"], "en": ["Store App", "Delivery App", "Social App", "Corporate App", "✨ Other"]}
     }
     b = names[category][lang]
     markup.add(types.InlineKeyboardButton(b[0], callback_data=f"{category}_type_0"), types.InlineKeyboardButton(b[1], callback_data=f"{category}_type_1"))
@@ -495,6 +492,23 @@ def get_smm_menu():
     markup.add(types.InlineKeyboardButton("🔙 ተመለስ / Back", callback_data="back_main"))
     return markup
 
+# 🆕 የሪሴል ንዑስ ምርጫ ማሳያ (ማቴሪያል እና አካውንት)
+def get_resell_menu(lang):
+    markup = types.InlineKeyboardMarkup(row_width=2)
+    if lang == "am":
+        markup.add(
+            types.InlineKeyboardButton("📦 ማቴሪያል / ዕቃ", callback_data="resell_opt_material"),
+            types.InlineKeyboardButton("👤 አካውንት", callback_data="resell_opt_account")
+        )
+        markup.add(types.InlineKeyboardButton("🔙 ተመለስ / Back", callback_data="menu_promo"))
+    else:
+        markup.add(
+            types.InlineKeyboardButton("📦 Material / Goods", callback_data="resell_opt_material"),
+            types.InlineKeyboardButton("👤 Account", callback_data="resell_opt_account")
+        )
+        markup.add(types.InlineKeyboardButton("🔙 Back", callback_data="menu_promo"))
+    return markup
+
 @bot.callback_query_handler(func=lambda call: True)
 def handle_all_callbacks(call):
     chat_id = call.message.chat.id
@@ -512,7 +526,7 @@ def handle_all_callbacks(call):
     elif call.data == "menu_smm" or call.data == "back_to_smm_choices":
         smm_welcome = (
             "📈 **የሶሻል ሚዲያ አካውንት ማስተዳደር እና የዕድገት ስትራቴጂ**\n\n"
-            "■ የማህበራዊ ሚዲያ ገጾችዎ በደንበኞች ዘንድ ተወዳጅ እና ከፍተኛ ሽያጭ የሚያመጡ እንዲሆኑ ለማድረግ ዝግጁ ነን።\n"
+            "■ የማህበራዊ ሚዲያ ገጾችዎ በደንበኞች ዘንድ ተወዳጅ እና ከፍተኛ ሽያጭ የሚያመጡ እንዲሆኑ ለማድረግ ዝግጁ ነን。\n"
             "■ ይህ አገልግሎት የይዘት ዝግጅትን፣ የግራፊክስ ዲዛይንን፣ የቪዲዮ ኤዲቲንግን እና የማስታወቂያ ስራዎችን ያካትታል።\n"
             "■ የአካውንትዎን ተደራሽነት በማሳደግ እውነተኛ ተከታዮችን እና ቋሚ ገዢዎችን የምናፈራበት ልዩ ጥበብ አለን።\n"
             "■ ከታች ከተዘረዘሩት ታዋቂ ማህበራዊ ሚዲያዎች ውስጥ የትኛውን አካውንት ማሳደግ እና ማስተዳደር እንደሚፈልጉ ይምረጡ።\n"
@@ -524,6 +538,67 @@ def handle_all_callbacks(call):
         except Exception:
             bot.send_message(chat_id, smm_welcome, reply_markup=get_smm_menu(), parse_mode="Markdown")
 
+    # 🆕 የPromotion & Resell ዋና ቁልፍ ሲነካ (ፕሮሞሽን እና ሪሴል ለብቻ ያመጣል)
+    elif call.data == "menu_promo":
+        promo_main_text = (
+            "📣 **የማስታወቂያ እና የሪሴሊንግ (Promotion & Resell) አገልግሎት ማዕከል**\n\n"
+            "■ ወደዚህ ታላቅ ክፍል እንኳን በደህና መጡ! እዚህ ጋር የንግድዎን ተደራሽነት እና ሽያጭ በከፍተኛ ሁኔታ እናሳድጋለን።\n"
+            "■ ይህ ምድብ ምርትዎን በሰፊው የምናስተዋውቅበትን እና ሌሎች ዲጂታል ንብረቶችን የምንሸጥበትን ስልት ይዟል።\n"
+            "■ ምርትና አገልግሎትዎን ለብዙሃን ለማድረስ ከፈለጉ 'ፕሮሞሽን' የሚለውን ክፍል መምረጥ ይችላሉ።\n"
+            "■ ማቴሪያሎችን ወይም የተለያዩ ማህበራዊ ሚዲያ አካውንቶችን መልሶ ለመሸጥ 'ሪሴል' የሚለውን ይምረጡ።\n"
+            "■ ከታች ከተዘረዘሩት ሁለት ዋና የሽያጭ አማራጮች ውስጥ የሚፈልጉትን በመንካት ጉዞዎን ይጀምሩ፦"
+        )
+        markup = types.InlineKeyboardMarkup(row_width=1)
+        if lang == "am":
+            markup.add(
+                types.InlineKeyboardButton("📣 ፕሮሞሽን (Promotion)", callback_data="promo_opt_promotion"),
+                types.InlineKeyboardButton("🔄 ሪሴል (Resell)", callback_data="promo_opt_resell"),
+                types.InlineKeyboardButton("🔙 ተመለስ / Back", callback_data="back_main")
+            )
+        else:
+            markup.add(
+                types.InlineKeyboardButton("📣 Promotion", callback_data="promo_opt_promotion"),
+                types.InlineKeyboardButton("🔄 Resell", callback_data="promo_opt_resell"),
+                types.InlineKeyboardButton("🔙 Back", callback_data="back_main")
+            )
+        bot.edit_message_text(promo_main_text, chat_id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+
+    # 🆕 ፕሮሞሽን ሲነካ (5 ጥያቄዎች ይጀምራሉ)
+    elif call.data == "promo_opt_promotion":
+        user_data[chat_id]['state'] = "promo_q_1"
+        user_data[chat_id]['answers'] = []
+        bot.edit_message_text(PROMO_QUESTIONS[0], chat_id, call.message.message_id, parse_mode="Markdown")
+
+    # 🆕 ሪሴል ሲነካ (ማቴሪያል እና አካውንት የሚሉትን ያመጣል)
+    elif call.data == "promo_opt_resell":
+        resell_main_text = (
+            "🔄 **የሪሴሊንግ (Reselling Partnership) ልዩ የሽያጭ ምድብ**\n\n"
+            "■ በዚህ ክፍል ውስጥ በእጅዎ የሚገኙ ቁሳቁሶችን ወይም ዲጂታል አካውንቶችን ከእኛ ጋር በመሆን መሸጥ ይችላሉ።\n"
+            "■ የያዙትን ማንኛውንም ዓይነት ማቴሪያል ወይም እቃ በፍጥነት ለገበያ ለማቅረብ 'ማቴሪያል' የሚለውን ይጫኑ።\n"
+            "■ ያደጉ ወይም የቆዩ የሶሻል ሚዲያ አካውንቶችን (Telegram/Facebook ወዘተ) ለመሸጥ 'አካውንት' የሚለውን ይምረጡ።\n"
+            "■ እኛ ሰፊ የተጠቃሚ መሠረት ስላለን የእርስዎን ምርቶችና አካውንቶች በአጭር ጊዜ ውስጥ የምንሸጥበት መንገድ አለን።\n"
+            "■ ከታች ካሉት ሁለት የሪሴል አማራጮች ውስጥ የእርስዎን የሽያጭ ይዘት የሚወክለውን ክፍል ይምረጡ፦"
+        )
+        bot.edit_message_text(resell_main_text, chat_id, call.message.message_id, reply_markup=get_resell_menu(lang), parse_mode="Markdown")
+
+    # 🆕 ማቴሪያል ሲነካ (ምን አይነት እቃ እንደሆነ እና 5 ጥያቄዎችን ይጠይቃል)
+    elif call.data == "resell_opt_material":
+        user_data[chat_id]['state'] = "material_q_1"
+        user_data[chat_id]['answers'] = []
+        bot.edit_message_text(MATERIAL_QUESTIONS[0], chat_id, call.message.message_id, parse_mode="Markdown")
+
+    # 🆕 አካውንት ሲነካ (የሶሻል ሚዲያውን ፍሰት ወደዚህ ያመጣዋል!)
+    elif call.data == "resell_opt_account":
+        smm_welcome_redirect = (
+            "📈 **የሪሴል አካውንት ማረጋገጫ - የሶሻል ሚዲያ ምርጫ ክፍል**\n\n"
+            "■ ለመሸጥ (Resell) ያሰቡትን የሶሻል ሚዲያ አካውንት መረጃዎችን የምናረጋግጥበት ክፍል ላይ ደርሰዋል።\n"
+            "■ ይህ ሲስተም የገጽዎን መለያ መርምሮ ትክክለኛነቱን እና የአሁኑን የተከታይ መጠን በራሱ ያወጣል።\n"
+            "■ እባክዎ ለመሸጥ የፈለጉት አካውንት የትኛው መድረክ ላይ እንደሚገኝ ከታች ካሉት አማራጮች ይምረጡ።\n"
+            "■ መድረኩን እንደመረጡ የገጽዎን ዩዘርኔም እንዲያስገቡ ተደርጎ ሙሉ መረጃው ፈልጎ ይቀርባል።\n"
+            "■ ምርጫዎን ለመጀመር ከታች ካሉት ማህበራዊ ሚዲያዎች አንዱን አሁኑኑ ይጫኑ፦"
+        )
+        bot.edit_message_text(smm_welcome_redirect, chat_id, call.message.message_id, reply_markup=get_smm_menu(), parse_mode="Markdown")
+
     elif call.data.startswith("smm_plat_"):
         platform = call.data.split("smm_plat_")[1]
         if platform == "Other":
@@ -532,7 +607,7 @@ def handle_all_callbacks(call):
                 "📝 **ለየት ያለ ወይም በዝርዝሩ ውስጥ ያልተካተተ ማህበራዊ ሚዲያ**\n\n"
                 "■ ማሰራት ወይም ማስተዳደር የፈለጉት የሶሻል ሚዲያ ገጽ ከላይ በተጠቀሱት አራቱ ዋና ምርጫዎች ውስጥ የሌለ ከሆነ፣\n"
                 "■ እኛ ማንኛውንም ዓይነት ዲጂታል መድረክ (ለምሳሌ፦ WhatsApp, YouTube, LinkedIn) ማስተዳደር እንችላለን።\n"
-                "■ እባክዎ የዚህን ማህበራዊ ሚዲያ ስም እና ምን አይነት አገልግሎት እንደሚፈልጉ ከታች ባለው ሳጥን ውስጥ ይፃፉልን።\n"
+                "■ እባክዎ የዚህን ማህበራዊ ሚዲያ ስም እና ምን አይነት አገልግሎት እንደሚፈልጉ ከታች ባለው ሳጥን ውስጥ ይፃፉልን。\n"
                 "■ የእርስዎን መልዕክት እንደደረሰን የባለሙያ ቡድናችን መረጃውን መሠረት አድርጎ ልዩ የስራ እቅድ ያዘጋጃል።\n"
                 "■ ስሙን ለመጻፍ ለምሳሌ፦ `/WhatsApp` ወይም `/YouTube` ብለው በጽሑፍ ያስገቡልን፦"
             )
@@ -542,7 +617,7 @@ def handle_all_callbacks(call):
             user_data[chat_id]['state'] = "waiting_smm_username"
             user_text = (
                 f"🔍 **የማህበራዊ ሚዲያ አካውንትዎን መለያ (Username/Link) የማረጋገጫ ክፍል**\n\n"
-                f"■ የመረጡትን የሶሻል ሚዲያ መድረክ ({platform}) በተሳካ ሁኔታ ለይተናል! አሁን ደግሞ አካውንትዎን መመርመር አለብን።\n"
+                f"■ የመረጡትን የሶሻል ሚዲያ መድረክ ({platform}) በተሳካ ሁኔታ ለይተናል! አሁን ደግሞ አካውንትዎን መመርመር አለብን。\n"
                 f"■ የገጽዎን የአሁኑን ቁመና፣ ይዘት እና የተከታዮች ብዛት አይተን ትክክለኛ ስትራቴጂ እንነድፋለን።\n"
                 f"■ ይህንን ለማድረግ የእርስዎን ትክክለኛ የዩዘርኔም አድራሻ (ለምሳሌ @username) ወይም ሊንክ ያስፈልገናል።\n"
                 f"■ እባክዎን አሁን ላይ የሚጠቀሙበትን ትክክለኛ የገጽዎን መለያ አድራሻ ከታች ባለው የፅሁፍ ሳጥን ውስጥ ይፃፉልን።\n"
@@ -555,9 +630,9 @@ def handle_all_callbacks(call):
         user_data[chat_id]['answers'] = []
         bot.send_message(chat_id, SMM_QUESTIONS[0], parse_mode="Markdown")
 
-    elif call.data in ["menu_web", "menu_bot", "menu_app", "menu_promo"]:
+    elif call.data in ["menu_web", "menu_bot", "menu_app"]:
         cat = call.data.split("_")[1]
-        cat_titles = {"web": "ድረ-ገጽ (Website)", "bot": "ቴሌግራም ቦት (Bot)", "app": "ሞባይል አፕሊኬሽን (App)", "promo": "ማስታወቂያ (Promotion)"}
+        cat_titles = {"web": "ድረ-ገጽ (Website)", "bot": "ቴሌግራም ቦት (Bot)", "app": "ሞባይል አፕሊኬሽን (App)"}
         sub_welcome = (
             f"🌐 **የ{cat_titles[cat]} ልማት እና የዲዛይን ምድብ አማራጮች**\n\n"
             f"■ ወደዚህ ክፍል በመምጣትዎ ትክክለኛ ውሳኔ አድርገዋል! ይህ ዘርፍ የቢዝነስዎ ዲጂታል አምባሳደር ነው።\n"
@@ -588,7 +663,7 @@ def handle_all_callbacks(call):
             "■ እርስዎ ያሰቡት የፈጠራ ስራ ከላይ ከተዘረዘሩት መደበኛ አማራጮች ውጭ ሊሆን ይችላል፤ ይህ ደግሞ ለእኛ ልዩ ነው።\n"
             "■ ማንኛውንም ዓይነት አዲስ፣ ውስብስብ ወይም ለየት ያለ የሲስተም ዲዛይን ሃሳብ በራሳችን ባለሙያዎች በጥራት መገንባት እንችላለን።\n"
             "■ የስራውን አጠቃላይ ይዘት፣ ፍሰቱን እና ምን እንዲሰራሎት እንደሚፈልጉ በሰፊው መጻፍ ይችላሉ።\n"
-            "■ እባክዎን በአእምሮዎ ውስጥ ያለውን አጠቃላይ የፕሮጀክት ራዕይ፣ አሰራር እና ፍላጎት ሳይቆጠቡ በዝርዝር ይፃፉልን።\n"
+            "■ እባክዎን በአእምሮዎ ውስጥ ያለውን አጠቃላይ የፕሮጀክት ራዕይ፣ አሰራር እና ፍላጎት ሳይቆጠቡ በዝርዝር ይፃፉልን。\n"
             "■ የጻፉትን መረጃ መሠረት በማድረግ የቴክኒክ ባለሙያዎቻችን አይተው ልዩ የዋጋ ማቅረቢያ ያዘጋጃሉ።\n\n"
             "👉 እባክዎ ፍላጎትዎን በዝርዝር ከታች ይፃፉልን፦"
         )
@@ -658,7 +733,6 @@ def handle_text_inputs(message):
         
         random_years = random.randint(1, 4)
         random_months = random.randint(1, 11)
-        random_days = random.randint(1, 29)
         mock_created_year = 2026 - random_years
         clean_user = username.replace("@", "")
         
@@ -685,6 +759,76 @@ def handle_text_inputs(message):
         bot.send_photo(chat_id, avatar_url, caption=info_msg, reply_markup=markup, parse_mode="Markdown")
         return
 
+    # 🆕 የፕሮሞሽን ጥያቄዎች አያያዝ ክፍል (5 ጥያቄዎችን ይቀበላል)
+    if state.startswith("promo_q_"):
+        q_num = int(state.split("promo_q_")[1])
+        user_data[chat_id]['answers'].append(message.text)
+        
+        if q_num < 5:
+            user_data[chat_id]['state'] = f"promo_q_{q_num + 1}"
+            bot.send_message(chat_id, PROMO_QUESTIONS[q_num], parse_mode="Markdown")
+        else:
+            tg_user = message.text
+            ans = user_data[chat_id]['answers']
+            
+            promo_success_text = (
+                f"🙏 **የማስታወቂያ (Promotion) ማዘዣዎ በታላቅ ደስታ ተመዝግቧል!**\n\n"
+                f"■ ሁሉንም የፕሮሞሽን ጥያቄዎች በጥንቃቄ እና በሰፊው ስለመለሱልን ከልብ እናመሰግናለን።\n"
+                f"■ የእርስዎ የማስታወቂያ ፍላጎት አሁን በቀጥታ ወደ ማርኬቲንግ እና ዲዛይን ቡድናችን ደርሷል።\n"
+                f"■ ባስገቡት የቴሌግራም ዩዘርኔም ({tg_user}) አማካኝነት በጥቂት ሰዓታት ውስጥ በቀጥታ ያገኝዎታል።\n"
+                f"■ ለምርትዎ የሚሆን ልዩ ማራኪ የፅሁፍ እና የምስል ባነር ዲዛይን ይዘን በውስጥ መስመር እንመጣለን።\n"
+                f"■ AK DEVELOPን ቅድሚያ ሰጥተው ስለመረጡን እያመሰገንን ፍሬያማ የሽያጭ ዘመን እንዲሆንልዎ እንመኛለን! 🚀"
+            )
+            bot.send_message(chat_id, promo_success_text, parse_mode="Markdown")
+            
+            admin_msg = (
+                f"📣 **አዲስ የማስታወቂያ (Promotion) ትዕዛዝ ደርሷል!**\n\n"
+                f"👤 **የደንበኛ ቴሌግራም:** {tg_user}\n\n"
+                f"📋 **የተሰጡ መልሶች፦**\n"
+                f"1. የሚስተዋወቀው ነገር: {ans[0]}\n"
+                f"2. የደንበኛ አይነት: {ans[1]}\n"
+                f"3. የማስታወቂያ ጊዜ: {ans[2]}\n"
+                f"4. የተመደበው በጀት: {ans[3]}"
+            )
+            bot.send_message(ADMIN_ID, admin_msg, parse_mode="Markdown")
+            del user_data[chat_id]
+        return
+
+    # 🆕 የሪሴል ማቴሪያል ጥያቄዎች አያያዝ ክፍል (5 ጥያቄዎችን ይቀበላል)
+    if state.startswith("material_q_"):
+        q_num = int(state.split("material_q_")[1])
+        user_data[chat_id]['answers'].append(message.text)
+        
+        if q_num < 5:
+            user_data[chat_id]['state'] = f"material_q_{q_num + 1}"
+            bot.send_message(chat_id, MATERIAL_QUESTIONS[q_num], parse_mode="Markdown")
+        else:
+            tg_user = message.text
+            ans = user_data[chat_id]['answers']
+            
+            material_success_text = (
+                f"🙏 **የማቴሪያል ሪሴሊንግ (Material Resell) ቅፅዎ በተሳካ ሁኔታ ተመዝግቧል!**\n\n"
+                f"■ ስለ እቃው/ማቴሪያሉ የሰጡንን ሰፊ እና ዝርዝር መግለጫ ሙሉ በሙሉ መዝግበን ጨርሰናል።\n"
+                f"■ ይህ መረጃ የሽያጭ ሰራተኞቻችን የምርቱን ክብደት እና የገበያ ዋጋ ለመገምገም በእጅጉ ይረዳታል።\n"
+                f"■ ባስገቡት ዋና የቴሌግራም አድራሻ ({tg_user}) በመጠቀም የሽያጭ ተወካዮቻችን በውስጥ መስመር ያነጋግሩዎታል።\n"
+                f"■ የዕቃውን ምስሎች በመረከብ በአጭር ጊዜ ውስጥ ለብዙ ገዢዎች የምናደርስበትን ውል እናዘጋጃለን።\n"
+                f"■ ከAK DEVELOP ጋር በጋራ ለመስራት እና አትራፊ ለመሆን በመወሰንዎ ደስ ብሎናል፤ እናመሰግናለን! 📦"
+            )
+            bot.send_message(chat_id, material_success_text, parse_mode="Markdown")
+            
+            admin_msg = (
+                f"📦 **አዲስ የሪሴል ማቴሪያል (ዕቃ) ትዕዛዝ ገብቷል!**\n\n"
+                f"👤 **የደንበኛ ቴሌግራም:** {tg_user}\n\n"
+                f"📋 **የተሰጡ መልሶች፦**\n"
+                f"1. የዕቃው ዓይነት: {ans[0]}\n"
+                f"2. የዕቃው ሁኔታ/ዋጋ: {ans[1]}\n"
+                f"3. በእጅ ያለ ብዛት: {ans[2]}\n"
+                f"4. የኮሚሽን ስምምነት: {ans[3]}"
+            )
+            bot.send_message(ADMIN_ID, admin_msg, parse_mode="Markdown")
+            del user_data[chat_id]
+        return
+
     if state.startswith("smm_q_"):
         q_num = int(state.split("smm_q_")[1])
         user_data[chat_id]['answers'].append(message.text)
@@ -699,17 +843,17 @@ def handle_text_inputs(message):
             ans = user_data[chat_id]['answers']
             
             smm_success_text = (
-                f"🙏 **የሶሻል ሚዲያ ማኔጅመንት ማዘዣዎ በታላቅ ደስታ ተመዝግቧል!**\n\n"
+                f"🙏 **የአካውንት መረጃ ማዘዣዎ በታላቅ ደስታ ተመዝግቧል!**\n\n"
                 f"■ ሁሉንም ዝርዝር ጥያቄዎች በጥንቃቄ እና በሰፊው ስለመለሱልን ከልብ እናመሰግናለን።\n"
-                f"■ የእርስዎ የፕሮጀክት ፍላጎት አሁን በቀጥታ ወደ ማህበራዊ ሚዲያ ማርኬቲንግ ባለሙያዎቻችን ክፍል ደርሷል።\n"
+                f"■ የእርስዎ የፕሮጀክት ፍላጎት አሁን በቀጥታ ወደ ማህበራዊ ሚዲያ ባለሙያዎቻችን ክፍል ደርሷል።\n"
                 f"■ ባስገቡት የቴሌግራም ዩዘርኔም ({tg_user}) አማካኝነት የቴክኒክ ቡድናችን በጥቂት ሰዓታት ውስጥ በቀጥታ ያገኝዎታል።\n"
-                f"■ ለገጽዎ የሚሆን ልዩ የ6 ወር ዕድገት ፍኖተ-ካርታ (Roadmap) እና ዝርዝር የዋጋ ስምምነት ይዘን እንመጣለን።\n"
+                f"■ ለአካውንትዎ የሚሆን ልዩ የስራ ፍኖተ-ካርታ (Roadmap) እና ዝርዝር የዋጋ ስምምነት ይዘን እንመጣለን።\n"
                 f"■ እስከዚያው ድረስ ለድርጅታችን ቅድሚያ ሰጥተው ስለመረጡን እያመሰገንን መልካም ጊዜ እንዲሆንልዎ እንመኛለን! 🚀"
             )
             bot.send_message(chat_id, smm_success_text, parse_mode="Markdown")
             
             admin_msg = (
-                f"🔥 **አዲስ የሶሻል ሚዲያ ማኔጅመንት ትዕዛዝ!**\n\n"
+                f"🔥 **አዲስ የአካውንት (SMM/Resell) ትዕዛዝ!**\n\n"
                 f"👤 **የደንበኛ ቴሌግራም:** {tg_user}\n"
                 f"🌐 **ማህበራዊ ሚዲያ:** {platform.upper()}\n"
                 f"🔗 **የአካውንቱ ዩዘርኔም:** {acc_user}\n\n"
