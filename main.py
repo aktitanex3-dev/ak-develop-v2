@@ -1,10 +1,25 @@
 import telebot
 from telebot import types
+import threading
+from flask import Flask
+import os
 
 # 1. ቦቱን በአዲሱ ቶከን ማስጀመር
 TOKEN = "8995958985:AAFsOQ1SxWmTe6gGo-lBFXAv72YjHAWLHBQ"
 ADMIN_ID = "8926052749"
 bot = telebot.TeleBot(TOKEN)
+
+# 2. ለRender መደለያ የሚሆን የFlask ሰርቨር መፍጠር
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "AK Develop Bot is Running Alive!"
+
+def run_flask():
+    # Render የሚሰጠውን ፖርት (በር) በራስ-ሰር ይወስዳል
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
 
 # የደንበኞች መረጃ ጊዜያዊ ማከማቻ (State Management)
 user_data = {}
@@ -239,7 +254,7 @@ def handle_user_answers(message):
     # የ Other መግለጫ መጀመሪያ ከተጻፈ
     if state == "waiting_other_desc":
         user_data[chat_id]['answers'].append(message.text)
-        user_data[chat_id]['state'] = "q_2" # የ መጀመሪያውን ጥያቄ ስለመለሱ ቀጥታ ወደ 2ኛው ያልፋል
+        user_data[chat_id]['state'] = "q_2"
         bot.send_message(chat_id, QUESTIONS[lang][1])
         return
 
@@ -263,7 +278,7 @@ def handle_user_answers(message):
             )
             bot.send_message(chat_id, thanks_msg, parse_mode="Markdown")
             
-            # ለአንተ (Admin) መረጃውን መላክ
+            # ለአንተ (Admin) መፈላጊውን መላክ
             category = user_data[chat_id].get('current_category', 'N/A')
             type_idx = user_data[chat_id].get('current_type', 'N/A')
             answers = user_data[chat_id]['answers']
@@ -285,6 +300,10 @@ def handle_user_answers(message):
             # ስቴቱን ማጽዳት
             del user_data[chat_id]
 
+# 3. ሁለቱንም (Flask እና Bot) በአንድ ላይ ማስነሳት
 if __name__ == "__main__":
+    print("Starting Flask dummy server for Render...")
+    threading.Thread(target=run_flask).start()
+    
     print("Bot is running perfectly...")
     bot.infinity_polling()
