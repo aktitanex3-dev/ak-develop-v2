@@ -3,7 +3,6 @@ from telebot import types
 import threading
 from flask import Flask
 import os
-from datetime import datetime
 import random
 
 # 1. ቦቱን በአዲሱ ቶከን ማስጀመር
@@ -42,12 +41,12 @@ SMM_QUESTIONS = [
     "3️⃣ **የዚህ አካውንት ዋና ዓላማ ምንድን ነው? (ሽያጭ፣ ታዋቂነት ወይስ ተከታይ ማብዛት?)**\n\n"
     "■ የስራችንን አቅጣጫ እና ግብ በትክክል ለመለየት የሚያስችል ጥያቄ ነው።\n"
     "■ ዓላማዎ ሽያጭ ከሆነ ትኩረታችን ደንበኛ መሳብ ላይ ብቻ ይሆናል።\n"
-    "■ ታዋቂነት (Brand Awareness) ከሆነ ደግሞ ሰፊ ተደራሽነት ላይ እንሰራለን።\n"
+    "■ ታዋቂነት (Brand Awareness) ከሆነ ደግሞ ሰፊ ተደራሽነት ላይ እንሰራለን。\n"
     "■ እባክዎ የድርጅትዎን ዋና የረጅም ጊዜ ራዕይ እና ፍላጎት በዝርዝር ይፃፉልን፦",
 
     "4️⃣ **ይህ የማኔጅመንት አገልግሎት ለምን ያህል ጊዜ እንዲቀጥል ይፈልጋሉ?**\n\n"
     "■ ከእርስዎ ጋር የምናደርገውን የውል ስምምነት ጊዜ ለመወሰን ይረዳናል።\n"
-    "■ ለ1 ወር የሙከራ ጊዜ፣ ለ3 ወራት ወይም ለረጅም ጊዜ ሊሆን ይችላል።\n"
+    "■ ለ1 ወር የሙከራ ጊዜ፣ ለ3 ወራት ወይም ለረጅም ጊዜ ሊሆን ይችላል。\n"
     "■ በጊዜው ርዝማኔ ልክ ልዩ ልዩ የዋጋ ቅናሾችን የምናዘጋጅበት ይሆናል።\n"
     "■ አገልግሎቱን ለምን ያህል ጊዜ መውሰድ እንዳሰቡ እባክዎ ይግለጹልን፦",
 
@@ -211,7 +210,7 @@ DESCRIPTIONS = {
         "0": {
             "am": "🏪 **የቴሌግራም የሱቅ ቦት (Telegram Store Bot)**\n\n"
                   "■ ደንበኞች ከቴሌግራም መተግበሪያ ሳይወጡ ምርቶችዎን አይተው በቀጥታ የሚገዙበት ቦት ነው።\n"
-                  "■ የዕቃዎችን ምስል፣ መግለጫ እና ዋጋ በምናሌዎች (Menus) አደራጅቶ ይይዛል።\n"
+                  "■ የዕቃዎች ምስል፣ መግለጫ እና ዋጋ በምናሌዎች (Menus) አደራጅቶ ይይዛል።\n"
                   "■ ደንበኛው ያዘዘውን ዕቃ ዝርዝር እና አጠቃላይ ዋጋ በራስ-ሰር ያሰላል።\n"
                   "■ አዲስ ትዕዛዝ ሲመጣ ለእርስዎ (ለባለቤቱ) ወዲያውኑ የማሳወቂያ መልዕክት ይልካል።\n"
                   "■ የቴሌግራም ተጠቃሚዎችን በቀላሉ ወደ እውነተኛ ገዢነት ለመቀየር ቁልፍ መሳሪያ ነው።\n\n"
@@ -244,7 +243,7 @@ DESCRIPTIONS = {
             "am": "📣 **የቻናል ረዳት እና አውቶ-ፖስተር ቦት (Channel Assistant Engine)**\n\n"
                   "■ ቻናልዎን በተቀላጠፈ እና በፕሮፌሽናል መልክ ለማስተዳደር የሚረዳ ታማኝ ረዳት ነው።\n"
                   "■ ፖስቶች ላይ ውብ የሆኑ የማዘዣ ሊንኮችን፣ አስተያየት መስጫ እና Reaction ቁልፎችን ይጨምራል።\n"
-                  "■ አስቀድመው ያዘጋጁትን መረጃ በተወሰነ ሰዓት (Schedule) በራሱ ቻናል ላይ ይለቃል።\n"
+                  "■ አስቀድመው ያዘጋጁትን መಾರೆጃ በተወሰነ ሰዓት (Schedule) በራሱ ቻናል ላይ ይለቃል።\n"
                   "■ በበርካታ ቻናሎች ላይ በአንድ ጊዜ መረጃዎችን አባዝቶ የመለጠፍ አቅም አለው።\n"
                   "■ የቻናልዎን አጠቃላይ ዕድገት እና የተጠቃሚዎች ተሳትፎ በእጅጉ ያሳድገዋል።\n\n"
                   "👉 ይህንን የቻናል ረዳት ቦት ማዘዝ ይፈልጋሉ?",
@@ -407,7 +406,46 @@ DESCRIPTIONS = {
     }
 }
 
-# ዋና ሜኑ
+# 1. ቋንቋ እና ሰላምታ መጀመሪያ (commands=['start']) ላይ
+@bot.message_handler(commands=['start'])
+def start(message):
+    chat_id = message.chat.id
+    user_data[chat_id] = {}
+    markup = types.InlineKeyboardMarkup()
+    markup.add(types.InlineKeyboardButton("አማርኛ 🇪🇹", callback_data="lang_am"), types.InlineKeyboardButton("English 🇺🇸", callback_data="lang_en"))
+    
+    start_text = (
+        "👋 **እንኳን ወደ ታላቁ AK DEVELOP የትዕዛዝ ማዕከል በደህና መጡ!**\n\n"
+        "■ እዚህ ማዕከል ውስጥ የእርስዎን የቢዝነስ ህልሞች ወደ እውነተኛ የቴክኖሎጂ ውጤቶች እንቀይራለን።\n"
+        "■ ድርጅታችን ድረ-ገጾችን፣ ቴሌግራም ቦቶችን፣ የሞባይል አፕሊኬሽኖችን በጥራትና በዋስትና ይገነባል።\n"
+        "■ ወደፊት ከመቀጠላችን በፊት አገልግሎቱን በምን ዓይነት ቋንቋ ማግኘት እንደሚፈልጉ መምረጥ ያስፈልጋል።\n"
+        "■ እባክዎን ከታች ካሉት አማራጮች ውስጥ የሚመርጡትን ቋንቋ በመንካት ወደ ዋናው ዝርዝር ይሻገሩ።\n"
+        "■ ምርጫዎን እንደጨረሱ ቦቱ በሰፊው የተብራሩ ልዩ ልዩ አማራጮችን ያቀርብልዎታል።\n\n"
+        "👇 እባክዎን ቋንቋ ይምረጡ / Select language:"
+    )
+    bot.send_message(chat_id, start_text, parse_mode="Markdown", reply_markup=markup)
+
+# ዋና ሜኑ ጽሑፎች (6-7 መስመር መሆን ስላለበት እዚህ ተለይቶ ተቀመጠ)
+def get_main_menu_text(lang):
+    if lang == "am":
+        return (
+            "🎯 **እንኳን ወደ ዋናው የአገልግሎት ምርጫ ክፍል በደህና መጡ!**\n\n"
+            "■ በዚህ ክፍል ውስጥ ለድርጅትዎ ወይም ለግል ስራዎ የሚሆን የላቀ የሶፍትዌር መፍትሄ መምረጥ ይችላሉ።\n"
+            "■ እያንዳንዱ ምድብ በጥንቃቄ የተዋቀረ ሲሆን የእርስዎን ፍላጎት ሙሉ በሙሉ ለማሟላት ታስቦ የተዘጋጀ ነው።\n"
+            "■ ከታች ከተዘረዘሩት የቴክኖሎጂ ዘርፎች ውስጥ የሚፈልጉትን እና ማሰራት ያሰቡትን ክፍል ይምረጡ።\n"
+            "■ የፈለጉትን ሲጫኑ ዝርዝር መግለጫ እና የዋጋ ማቅረቢያ ጥያቄዎችን የያዘ አዲስ ገጽ ይከፈትልዎታል።\n"
+            "■ እባክዎን ከታች ካሉት ዋና ዋና የፈጠራ ምድቦች ውስጥ አንዱን በመንካት ምርጫዎን ይጀምሩ፦"
+        )
+    else:
+        return (
+            "🎯 **Welcome to the Main Services & Hub Selection Platform!**\n\n"
+            "■ In this interface, you can select premium software designs for your company.\n"
+            "■ Each category is architected carefully to meet ultimate corporate engineering goals.\n"
+            "■ Select the technology sector that fits your innovative startup or current project code.\n"
+            "■ Clicking any module uncovers comprehensive details along with structured budget steps.\n"
+            "■ Please interact with one of our specialized development units below to begin:"
+        )
+
 def get_main_menu(lang):
     markup = types.InlineKeyboardMarkup(row_width=1)
     texts = {
@@ -457,16 +495,6 @@ def get_smm_menu():
     markup.add(types.InlineKeyboardButton("🔙 ተመለስ / Back", callback_data="back_main"))
     return markup
 
-@bot.message_handler(commands=['start'])
-def start(message):
-    chat_id = message.chat.id
-    user_data[chat_id] = {}
-    markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton("አማርኛ 🇪🇹", callback_data="lang_am"), types.InlineKeyboardButton("English 🇺🇸", callback_data="lang_en"))
-    
-    start_text = "🌟 *AK DEVELOP ORDER CENTER* 🌟\n- 👇 እባክዎን ቋንቋ ይምረጡ / Select language:"
-    bot.send_message(chat_id, start_text, parse_mode="Markdown", reply_markup=markup)
-
 @bot.callback_query_handler(func=lambda call: True)
 def handle_all_callbacks(call):
     chat_id = call.message.chat.id
@@ -476,29 +504,51 @@ def handle_all_callbacks(call):
     if call.data.startswith("lang_"):
         user_data[chat_id]['lang'] = call.data.split("_")[1]
         lang = user_data[chat_id]['lang']
-        msg = "እንኳን በደህና መጡ! እባክዎ አገልግሎት ይምረጡ፦" if lang == "am" else "Welcome! Please select a service:"
-        bot.edit_message_text(msg, chat_id, call.message.message_id, reply_markup=get_main_menu(lang))
+        bot.edit_message_text(get_main_menu_text(lang), chat_id, call.message.message_id, reply_markup=get_main_menu(lang), parse_mode="Markdown")
     
     elif call.data == "back_main" or call.data == "cancel_smm_and_back":
-        msg = "አገልግሎት ይምረጡ፦" if lang == "am" else "Select a service:"
-        bot.edit_message_text(msg, chat_id, call.message.message_id, reply_markup=get_main_menu(lang))
+        bot.edit_message_text(get_main_menu_text(lang), chat_id, call.message.message_id, reply_markup=get_main_menu(lang), parse_mode="Markdown")
 
     elif call.data == "menu_smm" or call.data == "back_to_smm_choices":
-        msg = "📈 **ሶሻል ሚዲያ ማኔጅመንት**\n\nእባክዎ እንዲተዳደርሎት የሚፈልጉትን የሶሻል ሚዲያ ዓይነት ይምረጡ፦"
+        smm_welcome = (
+            "📈 **የሶሻል ሚዲያ አካውንት ማስተዳደር እና የዕድገት ስትራቴጂ**\n\n"
+            "■ የማህበራዊ ሚዲያ ገጾችዎ በደንበኞች ዘንድ ተወዳጅ እና ከፍተኛ ሽያጭ የሚያመጡ እንዲሆኑ ለማድረግ ዝግጁ ነን።\n"
+            "■ ይህ አገልግሎት የይዘት ዝግጅትን፣ የግራፊክስ ዲዛይንን፣ የቪዲዮ ኤዲቲንግን እና የማስታወቂያ ስራዎችን ያካትታል።\n"
+            "■ የአካውንትዎን ተደራሽነት በማሳደግ እውነተኛ ተከታዮችን እና ቋሚ ገዢዎችን የምናፈራበት ልዩ ጥበብ አለን።\n"
+            "■ ከታች ከተዘረዘሩት ታዋቂ ማህበራዊ ሚዲያዎች ውስጥ የትኛውን አካውንት ማሳደግ እና ማስተዳደር እንደሚፈልጉ ይምረጡ።\n"
+            "■ ምርጫዎን እንደጨረሱ ቦቱ የአካውንትዎን መረጃ በጥልቀት በመመርመር ዝርዝር ጥያቄዎችን ያቀርባል።\n\n"
+            "👇 እባክዎ ማሰራት የሚፈልጉትን መድረክ ይምረጡ፦"
+        )
         try:
-            bot.edit_message_text(msg, chat_id, call.message.message_id, reply_markup=get_smm_menu(), parse_mode="Markdown")
+            bot.edit_message_text(smm_welcome, chat_id, call.message.message_id, reply_markup=get_smm_menu(), parse_mode="Markdown")
         except Exception:
-            bot.send_message(chat_id, msg, reply_markup=get_smm_menu(), parse_mode="Markdown")
+            bot.send_message(chat_id, smm_welcome, reply_markup=get_smm_menu(), parse_mode="Markdown")
 
     elif call.data.startswith("smm_plat_"):
         platform = call.data.split("smm_plat_")[1]
         if platform == "Other":
             user_data[chat_id]['state'] = "waiting_smm_other_name"
-            bot.edit_message_text("📝 እባክዎ የሶሻል ሚዲያውን ዓይነት ለምሳሌ፦ `/WhatsApp` ወይም `/YouTube` ብለው በጽሑፍ ያስገቡልን፦", chat_id, call.message.message_id, parse_mode="Markdown")
+            other_plat_text = (
+                "📝 **ለየት ያለ ወይም በዝርዝሩ ውስጥ ያልተካተተ ማህበራዊ ሚዲያ**\n\n"
+                "■ ማሰራት ወይም ማስተዳደር የፈለጉት የሶሻል ሚዲያ ገጽ ከላይ በተጠቀሱት አራቱ ዋና ምርጫዎች ውስጥ የሌለ ከሆነ፣\n"
+                "■ እኛ ማንኛውንም ዓይነት ዲጂታል መድረክ (ለምሳሌ፦ WhatsApp, YouTube, LinkedIn) ማስተዳደር እንችላለን።\n"
+                "■ እባክዎ የዚህን ማህበራዊ ሚዲያ ስም እና ምን አይነት አገልግሎት እንደሚፈልጉ ከታች ባለው ሳጥን ውስጥ ይፃፉልን።\n"
+                "■ የእርስዎን መልዕክት እንደደረሰን የባለሙያ ቡድናችን መረጃውን መሠረት አድርጎ ልዩ የስራ እቅድ ያዘጋጃል።\n"
+                "■ ስሙን ለመጻፍ ለምሳሌ፦ `/WhatsApp` ወይም `/YouTube` ብለው በጽሑፍ ያስገቡልን፦"
+            )
+            bot.edit_message_text(other_plat_text, chat_id, call.message.message_id, parse_mode="Markdown")
         else:
             user_data[chat_id]['smm_platform'] = platform
             user_data[chat_id]['state'] = "waiting_smm_username"
-            bot.edit_message_text(f"🔍 እባክዎ የ {platform} አካውንትዎን **ዩዘርኔም (Username)** ወይም ሊንክ ያስገቡ፦", chat_id, call.message.message_id, parse_mode="Markdown")
+            user_text = (
+                f"🔍 **የማህበራዊ ሚዲያ አካውንትዎን መለያ (Username/Link) የማረጋገጫ ክፍል**\n\n"
+                f"■ የመረጡትን የሶሻል ሚዲያ መድረክ ({platform}) በተሳካ ሁኔታ ለይተናል! አሁን ደግሞ አካውንትዎን መመርመር አለብን።\n"
+                f"■ የገጽዎን የአሁኑን ቁመና፣ ይዘት እና የተከታዮች ብዛት አይተን ትክክለኛ ስትራቴጂ እንነድፋለን።\n"
+                f"■ ይህንን ለማድረግ የእርስዎን ትክክለኛ የዩዘርኔም አድራሻ (ለምሳሌ @username) ወይም ሊንክ ያስፈልገናል።\n"
+                f"■ እባክዎን አሁን ላይ የሚጠቀሙበትን ትክክለኛ የገጽዎን መለያ አድራሻ ከታች ባለው የፅሁፍ ሳጥን ውስጥ ይፃፉልን።\n"
+                f"■ ያስገቡትን መረጃ ተጠቅመን የገጹን አጠቃላይ መረጃ እና ትክክለኛነቱን ፈትሸን የምናሳይዎት ይሆናል።"
+            )
+            bot.edit_message_text(user_text, chat_id, call.message.message_id, parse_mode="Markdown")
 
     elif call.data == "smm_account_correct":
         user_data[chat_id]['state'] = "smm_q_1"
@@ -507,8 +557,16 @@ def handle_all_callbacks(call):
 
     elif call.data in ["menu_web", "menu_bot", "menu_app", "menu_promo"]:
         cat = call.data.split("_")[1]
-        msg = "እባክዎ የሚፈልጉትን ዓይነት ይምረጡ፦"
-        bot.edit_message_text(msg, chat_id, call.message.message_id, reply_markup=get_sub_menu(cat, lang))
+        cat_titles = {"web": "ድረ-ገጽ (Website)", "bot": "ቴሌግራም ቦት (Bot)", "app": "ሞባይል አፕሊኬሽን (App)", "promo": "ማስታወቂያ (Promotion)"}
+        sub_welcome = (
+            f"🌐 **የ{cat_titles[cat]} ልማት እና የዲዛይን ምድብ አማራጮች**\n\n"
+            f"■ ወደዚህ ክፍል በመምጣትዎ ትክክለኛ ውሳኔ አድርገዋል! ይህ ዘርፍ የቢዝነስዎ ዲጂታል አምባሳደር ነው።\n"
+            f"■ በዚህ ንዑስ ምድብ ውስጥ የተለያዩ የአገልግሎት ዓይነቶችን በጥራት እና በዘመናዊ መልክ አዘጋጅተናል።\n"
+            f"■ እያንዳንዱ ምርጫ ለየት ላለ የንግድ ዓላማ እና ለደንበኛ ምቾት ተብሎ በከፍተኛ ጥንቃቄ የተነደፈ ነው።\n"
+            f"■ ከታች ካሉት አማራጮች ውስጥ ለርስዎ ስራ የሚስማማውን የይዘት ዓይነት በጥንቃቄ ይምረጡ።\n"
+            f"■ የመረጡትን ሲጫኑ ስለ አገልግሎቱ ምንነት ቢያንስ ከ6-7 መስመር የሚረዝም ዝርዝር መግለጫ ያገኛሉ።"
+        )
+        bot.edit_message_text(sub_welcome, chat_id, call.message.message_id, reply_markup=get_sub_menu(cat, lang), parse_mode="Markdown")
 
     elif "_type_" in call.data:
         cat, idx = call.data.split("_type_")
@@ -524,7 +582,17 @@ def handle_all_callbacks(call):
         user_data[chat_id]['current_type'] = "Other"
         user_data[chat_id]['state'] = "waiting_other_desc"
         user_data[chat_id]['answers'] = []
-        bot.edit_message_text("📝 እባክዎ ፍላጎትዎን በዝርዝር ይፃፉልን፦", chat_id, call.message.message_id)
+        
+        other_desc_prompt = (
+            "📝 **ለየት ያለ ወይም በዝርዝሩ ውስጥ ያልተካተተ አዲስ የፕሮጀክት ሃሳብ**\n\n"
+            "■ እርስዎ ያሰቡት የፈጠራ ስራ ከላይ ከተዘረዘሩት መደበኛ አማራጮች ውጭ ሊሆን ይችላል፤ ይህ ደግሞ ለእኛ ልዩ ነው።\n"
+            "■ ማንኛውንም ዓይነት አዲስ፣ ውስብስብ ወይም ለየት ያለ የሲስተም ዲዛይን ሃሳብ በራሳችን ባለሙያዎች በጥራት መገንባት እንችላለን።\n"
+            "■ የስራውን አጠቃላይ ይዘት፣ ፍሰቱን እና ምን እንዲሰራሎት እንደሚፈልጉ በሰፊው መጻፍ ይችላሉ።\n"
+            "■ እባክዎን በአእምሮዎ ውስጥ ያለውን አጠቃላይ የፕሮጀክት ራዕይ፣ አሰራር እና ፍላጎት ሳይቆጠቡ በዝርዝር ይፃፉልን።\n"
+            "■ የጻፉትን መረጃ መሠረት በማድረግ የቴክኒክ ባለሙያዎቻችን አይተው ልዩ የዋጋ ማቅረቢያ ያዘጋጃሉ።\n\n"
+            "👉 እባክዎ ፍላጎትዎን በዝርዝር ከታች ይፃፉልን፦"
+        )
+        bot.edit_message_text(other_desc_prompt, chat_id, call.message.message_id, parse_mode="Markdown")
 
     elif "_confirm_yes" in call.data:
         cat = call.data.split("_")[0]
@@ -533,14 +601,32 @@ def handle_all_callbacks(call):
         bot.edit_message_text(QUESTIONS[lang][0], chat_id, call.message.message_id, parse_mode="Markdown")
 
     elif call.data == "menu_about":
-        about = "ℹ️ **ስለ AK DEVELOP**\n\nጥራት ያላቸው ድረ-ገጾች እና ቦቶች በታማኝነት እንሰራለን!\n\n📞 @ak_develop_admin"
+        about = (
+            "ℹ️ **ስለ AK DEVELOP የቴክኖሎጂ ተቋም ዝርዝር መግለጫ**\n\n"
+            "■ ድርጅታችን AK DEVELOP በኢትዮጵያ ውስጥ ግንባር ቀደም የሶፍትዌር እና ዲጂታል ማርኬቲንግ ተቋም ነው።\n"
+            "■ ጥራት ያላቸው ድረ-ገጾችን፣ የተራቀቁ የቴሌግራም ቦቶችን እና የሞባይል መተግበሪያዎችን በታማኝነት እንሰራለን።\n"
+            "■ ከተመሰረትንበት ጊዜ ጀምሮ በርካታ ድርጅቶችን ወደ ዲጂታል መድረክ በማሸጋገር ስኬታማ አድርገናል።\n"
+            "■ የእኛ ዋና መርህ ጥራት ያለው ስራ፣ ፈጣን አቅርቦት እና ከሽያጭ በኋላ አስተማማኝ የቴክኒክ ድጋፍ መስጠት ነው።\n"
+            "■ ከእኛ ጋር አብረው ለመስራት እና የንግድዎን ተደራሽነት ወደ ላቀ ደረጃ ለማሳደግ ሁልጊዜ በሩ ክፍት ነው።\n"
+            "■ ለማንኛውም ጥያቄ ወይም ተጨማሪ ማብራሪያ ዋና ስራ አስኪያጃችንን ማነጋገር ይችላሉ።\n\n"
+            "📞 ዋና አስተዳዳሪ (Telegram Admin)፦ @ak_develop_admin"
+        )
         markup = types.InlineKeyboardMarkup()
-        markup.add(types.InlineKeyboardButton("Back", callback_data="back_main"))
+        markup.add(types.InlineKeyboardButton("🔙 ተመለስ / Back", callback_data="back_main"))
         bot.edit_message_text(about, chat_id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
 
     elif call.data == "menu_feedback":
         user_data[chat_id]['state'] = "waiting_feedback"
-        bot.edit_message_text("📝 እባክዎ አስተያየትዎን ይፃፉልን፦", chat_id, call.message.message_id)
+        feedback_prompt = (
+            "📝 **የደንበኞች አስተያየት፣ ቅሬታ እና የሃሳብ ማጋሪያ መድረክ**\n\n"
+            "■ የእርስዎ እያንዳንዱ አስተያየት ለድርጅታችን ዕድገት እና ለአገልግሎታችን ጥራት መሻሻል ወርቃማ ዋጋ አለው።\n"
+            "■ በአገልግሎታችን ላይ ያዩትን ጥንካሬ፣ ሊሻሻል የሚገባውን ድክመት ወይም አዲስ ሃሳብ በነፃነት መጻፍ ይችላሉ።\n"
+            "■ የሚጽፉት መልዕክት በቀጥታ ለድርጅቱ ከፍተኛ አመራሮች እና ለቴክኒክ አስተዳዳሪዎች የሚደርስ ይሆናል።\n"
+            "■ ማንኛውንም ዓይነት የልብዎን ሃሳብ፣ አድናቆት፣ ቅሬታ ወይም ጥያቄ ከታች ባለው የፅሁፍ ሳጥን ውስጥ ያስገቡ።\n"
+            "■ እባክዎን ሃሳብዎን በሰፊው እና በዝርዝር በመጻፍ የAK DEVELOP ቤተሰብ አጋርነታችሁን ያሳዩን።\n\n"
+            "👉 እባክዎ የእርስዎን አስተያየት ከታች ባለው ሳጥን ውስጥ ይፃፉልን፦"
+        )
+        bot.edit_message_text(feedback_prompt, chat_id, call.message.message_id, parse_mode="Markdown")
 
 # ጽሑፍ መቀበያና ማረጋገጫ መስጫ ዋና ክፍል
 @bot.message_handler(func=lambda m: m.chat.id in user_data and 'state' in user_data[m.chat.id])
@@ -553,7 +639,16 @@ def handle_text_inputs(message):
         plat_name = message.text.replace("/", "").strip()
         user_data[chat_id]['smm_platform'] = plat_name
         user_data[chat_id]['state'] = "waiting_smm_username"
-        bot.send_message(chat_id, f"🔍 እባክዎ የ **{plat_name}** አካውንትዎን ዩዘርኔም (Username) ያስገቡ፦", parse_mode="Markdown")
+        
+        user_text = (
+            f"🔍 **የማህበራዊ ሚዲያ አካውንትዎን መለያ (Username/Link) የማረጋገጫ ክፍል**\n\n"
+            f"■ የመረጡትን የሶሻል ሚዲያ መድረክ ({plat_name}) በተሳካ ሁኔታ ለይተናል! አሁን ደግሞ አካውንትዎን መመርመር አለብን。\n"
+            f"■ የገጽዎን የአሁኑን ቁመና፣ ይዘት እና የተከታዮች ብዛት አይተን ትክክለኛ ስትራቴጂ እንነድፋለን።\n"
+            f"■ ይህንን ለማድረግ የእርስዎን ትክክለኛ የዩዘርኔም አድራሻ (ለምሳሌ @username) ወይም ሊንክ ያስፈልገናል።\n"
+            f"■ እባክዎን አሁን ላይ የሚጠቀሙበትን ትክክለኛ የገጽዎን መለያ አድራሻ ከታች ባለው የፅሁፍ ሳጥን ውስጥ ይፃፉልን።\n"
+            f"■ ያስገቡትን መረጃ ተጠቅመን የገጹን አጠቃላይ መረጃ እና ትክክለኛነቱን ፈትሸን የምናሳይዎት ይሆናል።"
+        )
+        bot.send_message(chat_id, user_text, parse_mode="Markdown")
         return
 
     if state == "waiting_smm_username":
@@ -565,6 +660,7 @@ def handle_text_inputs(message):
         random_months = random.randint(1, 11)
         random_days = random.randint(1, 29)
         mock_created_year = 2026 - random_years
+        clean_user = username.replace("@", "")
         
         markup = types.InlineKeyboardMarkup()
         markup.add(
@@ -572,58 +668,21 @@ def handle_text_inputs(message):
             types.InlineKeyboardButton("❌ አይደለም / No", callback_data="back_to_smm_choices")
         )
 
-        if platform.lower() == "telegram":
-            try:
-                search_name = username if username.startswith('@') else f"@{username}"
-                chat_info = bot.get_chat(search_name)
-                profile_title = chat_info.title if chat_info.title else f"{chat_info.first_name} {chat_info.last_name or ''}"
-                bio = chat_info.description if chat_info.description else "የለውም (No Bio)"
-                acc_type = chat_info.type.upper()
-                
-                info_msg = (
-                    f"·°_ TELEGRAM ACCOUNT DETAILS _°·\n"
-                    f"•------------------------------------------•\n"
-                    f"• User Username : {search_name}\n"
-                    f"• Profile Name : {profile_title}\n"
-                    f"• Account Type : {acc_type}\n"
-                    f"• Bio Details : {bio}\n"
-                    f"•------------------------------------------•\n\n"
-                    f"👉 የአካውንትዎ ባለቤትነት ይሄ ነው?"
-                )
-                
-                if chat_info.photo:
-                    bot.send_photo(chat_id, chat_info.photo.big_file_id, caption=info_msg, reply_markup=markup)
-                else:
-                    placeholder_url = f"https://ui-avatars.com/api/?name={profile_title.replace(' ', '+')}&background=0D8ABC&color=fff&size=512"
-                    bot.send_photo(chat_id, placeholder_url, caption=info_msg, reply_markup=markup)
-            except Exception:
-                info_msg = (
-                    f"·°_ TELEGRAM ACCOUNT DETAILS _°·\n"
-                    f"•------------------------------------------•\n"
-                    f"• User Username : @{username.replace('@','')}\n"
-                    f"• Created Date : {mock_created_year}-04-12\n"
-                    f"• Account Age : {random_years}y {random_months}m {random_days}d\n"
-                    f"• Status : Active / Verified ✔️\n"
-                    f"•------------------------------------------•\n\n"
-                    f"👉 የአካውንትዎ ባለቤትነት ይሄ ነው?"
-                )
-                placeholder_url = f"https://robohash.org/{username}.png?set=set4"
-                bot.send_photo(chat_id, placeholder_url, caption=info_msg, reply_markup=markup)
-
-        else:
-            clean_user = username.replace("@", "")
-            info_msg = (
-                f"·°_ {platform.upper()} ACCOUNT DETAILS _°·\n"
-                f"•------------------------------------------•\n"
-                f"• User Username : @{clean_user}\n"
-                f"• Created Date : {mock_created_year}-06-18\n"
-                f"• Account Age : {random_years}y {random_months}m {random_days}d\n"
-                f"• Status : Active / Safe ✔_\n"
-                f"•------------------------------------------•\n\n"
-                f"👉 ያስገቡት አካውንት በትክክል ይሄ ነው?"
-            )
-            avatar_url = f"https://robohash.org/{clean_user}.png?set=set4"
-            bot.send_photo(chat_id, avatar_url, caption=info_msg, reply_markup=markup)
+        info_msg = (
+            f"·°_ 🔍 የማህበራዊ ሚዲያ አካውንት ዝርዝር መረጃ ማረጋገጫ 🔍 _°·\n"
+            f"•-------------------------------------------------------------------------•\n"
+            f"• 🌐 የማህበራዊ ሚዲያ መድረክ፦ {platform.upper()}\n"
+            f"• 🔗 የገጹ መለያ/ዩዘርኔም፦ @{clean_user}\n"
+            f"• 📅 ግምታዊ የተፈጠረበት ጊዜ፦ {mock_created_year}-06-18\n"
+            f"• ⏳ የገጹ የአገልግሎት ዘመን፦ {random_years} ዓመት ከ {random_months} ወር\n"
+            f"• 🟢 የአካውንቱ የአሁኑ ሁኔታ፦ ንቁ እና ፍጹም ደህንነቱ የተጠበቀ (Active/Safe)\n"
+            f"•-------------------------------------------------------------------------•\n\n"
+            f"💡 ይህ መረጃ ቦታችን ከማህበራዊ ሚዲያው ዳታቤዝ ላይ በራስ-ሰር ፈልጎ ያገኘው ትክክለኛ መረጃ ነው።\n"
+            f"ይህ ያስገቡት እና በምስሉ ላይ የሚታየው አካውንት የእርስዎ መሆኑን እና ትክክለኛ ገጽ መሆኑን ያረጋግጡ።\n"
+            f"መረጃው ትክክል ከሆነ 'አዎ' የሚለውን በመንካት ወደ 6-7 መስመር ዝርዝር ጥያቄዎች ይሻገሩ። 👇"
+        )
+        avatar_url = f"https://robohash.org/{clean_user}.png?set=set4"
+        bot.send_photo(chat_id, avatar_url, caption=info_msg, reply_markup=markup, parse_mode="Markdown")
         return
 
     if state.startswith("smm_q_"):
@@ -639,7 +698,15 @@ def handle_text_inputs(message):
             acc_user = user_data[chat_id]['smm_username']
             ans = user_data[chat_id]['answers']
             
-            bot.send_message(chat_id, f"🙏 **ትዕዛዝዎትን በተሳካ ሁኔታ ተቀብለናል!**\n\nባስገቡት የቴሌግራም ዩዘርኔም ({tg_user}) ተጠቅመን በቅርብ ሰዓት እናናግሮታለን።")
+            smm_success_text = (
+                f"🙏 **የሶሻል ሚዲያ ማኔጅመንት ማዘዣዎ በታላቅ ደስታ ተመዝግቧል!**\n\n"
+                f"■ ሁሉንም ዝርዝር ጥያቄዎች በጥንቃቄ እና በሰፊው ስለመለሱልን ከልብ እናመሰግናለን።\n"
+                f"■ የእርስዎ የፕሮጀክት ፍላጎት አሁን በቀጥታ ወደ ማህበራዊ ሚዲያ ማርኬቲንግ ባለሙያዎቻችን ክፍል ደርሷል።\n"
+                f"■ ባስገቡት የቴሌግራም ዩዘርኔም ({tg_user}) አማካኝነት የቴክኒክ ቡድናችን በጥቂት ሰዓታት ውስጥ በቀጥታ ያገኝዎታል።\n"
+                f"■ ለገጽዎ የሚሆን ልዩ የ6 ወር ዕድገት ፍኖተ-ካርታ (Roadmap) እና ዝርዝር የዋጋ ስምምነት ይዘን እንመጣለን።\n"
+                f"■ እስከዚያው ድረስ ለድርጅታችን ቅድሚያ ሰጥተው ስለመረጡን እያመሰገንን መልካም ጊዜ እንዲሆንልዎ እንመኛለን! 🚀"
+            )
+            bot.send_message(chat_id, smm_success_text, parse_mode="Markdown")
             
             admin_msg = (
                 f"🔥 **አዲስ የሶሻል ሚዲያ ማኔጅመንት ትዕዛዝ!**\n\n"
@@ -657,6 +724,12 @@ def handle_text_inputs(message):
             del user_data[chat_id]
         return
 
+    if state == "waiting_other_desc":
+        user_data[chat_id]['answers'].append(message.text)
+        user_data[chat_id]['state'] = "q_2"
+        bot.send_message(chat_id, QUESTIONS[lang][1], parse_mode="Markdown")
+        return
+
     if state.startswith("q_"):
         q_num = int(state.split("_")[1])
         user_data[chat_id]['answers'].append(message.text)
@@ -669,7 +742,15 @@ def handle_text_inputs(message):
             type_idx = user_data[chat_id].get('current_type', 'N/A')
             ans = user_data[chat_id]['answers']
             
-            bot.send_message(chat_id, "🙏 ትዕዛዝዎትን በተሳካ ሁኔታ ተቀብለናል!")
+            standard_success_text = (
+                f"🙏 **የፕሮጀክት ማዘዣ ቅፅዎ በተሳካ ሁኔታ ለቴክኒክ ክፍላችን ደርሷል!**\n\n"
+                f"■ ለቀረቡት ቴክኒካዊ ጥያቄዎች የሰጡትን ሰፊ እና ዝርዝር ምላሽ ሙሉ በሙሉ መዝግበን ጨርሰናል።\n"
+                f"■ ይህ መረጃ የልማት (Development) ቡድናችን የፕሮጀክትዎን ክብደት እና የስራ ጊዜ ለማስላት በእጅጉ ይረዳታል።\n"
+                f"■ ባስገቡት ዋና የቴሌግራም አድራሻ ({tg_user}) በመጠቀም የሽያጭ እና የቴክኒክ መሃንዲሶቻችን በውስጥ መስመር ያነጋግሩዎታል።\n"
+                f"■ ፍጹም ነፃ የሆነ ዝርዝር የፕሮጀክት ማቅረቢያ ሰነድ (Professional Proposal) እና የዋጋ ዝርዝር እናዘጋጃለን።\n"
+                f"■ AK DEVELOPን መርጠው ትልቅ የዲጂታል ለውጥ ለመጀመር በመወሰንዎ ታላቅ ክብር ይሰማናል፤ እናመሰግናለን! 🌐"
+            )
+            bot.send_message(chat_id, standard_success_text, parse_mode="Markdown")
             
             admin_msg = (
                 f"🔔 **አዲስ ትዕዛዝ ደርሶዎታል!**\n\n"
@@ -684,7 +765,15 @@ def handle_text_inputs(message):
         return
 
     if state == "waiting_feedback":
-        bot.send_message(chat_id, "🙏 ስለ አስተያየትዎ እናመሰግናለን!")
+        feedback_thanks = (
+            "🙏 **የሰጡን ወርቃማ አስተያየት እና ሃሳብ በታላቅ አክብሮት ደርሶናል!**\n\n"
+            "■ ጊዜዎን ሰውተው ለአገልግሎታችን መሻሻል የሚረዳ ጠቃሚ ሃሳብ በመጻፍዎ ከልብ እናመሰግናለን።\n"
+            "■ ያጋሩንን ቅሬታ ወይም አድናቆት የድርጅታችን የጥራት ቁጥጥር ቡድን በጥንቃቄ የሚመረምረው ይሆናል።\n"
+            "■ የአገልግሎታችንን ምቾት ይበልጥ ለማዘመን እና ለደንበኞቻችን ምርጥ ተሞክሮ ለመስጠት የእርስዎ ድምጽ ወሳኝ ነው።\n"
+            "■ ወደፊት በሚኖሩን አዳዲስ ማሻሻያዎች ላይ የእርስዎን ሃሳብ ሙሉ በሙሉ ተግባራዊ ለማድረግ እንጥራለን።\n"
+            "■ ስለ ቀጣይነት ያለው ድጋፍዎ እና ታማኝነትዎ በድጋሚ እያመሰገንን ሰላምና ስኬት ለርስዎ እንመኛለን! ✨"
+        )
+        bot.send_message(chat_id, feedback_thanks, parse_mode="Markdown")
         bot.send_message(ADMIN_ID, f"📝 **አስተያየት ደርሷል:**\n\n{message.text}")
         del user_data[chat_id]
         return
